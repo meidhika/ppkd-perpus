@@ -37,7 +37,7 @@ $rowKategori = mysqli_fetch_assoc($queryKategori);
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                            <a class="nav-link active" aria-current="page" href="content/home.php">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="?pg=user">User</a>
@@ -48,11 +48,16 @@ $rowKategori = mysqli_fetch_assoc($queryKategori);
                         <li class="nav-item">
                             <a class="nav-link" href="?pg=kategori">Kategori</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="?pg=buku">Buku</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="?pg=anggota">Anggota</a>
+                        </li>
 
                     </ul>
                     <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-light" type="submit">Search</button>
+                        <a href="login.php" class="btn btn-primary">Login</a>
                     </form>
                 </div>
             </div>
@@ -64,7 +69,7 @@ $rowKategori = mysqli_fetch_assoc($queryKategori);
             if (file_exists('content/' . $_GET['pg'] . '.php')) {
                 include 'content/' . $_GET['pg'] . '.php';
             } else {
-                include 'index.php';
+                include 'content/home.php';
             }
         }
 
