@@ -17,19 +17,19 @@ $queryAnggota = mysqli_query($koneksi, "SELECT * FROM anggota ORDER BY id DESC")
                     <?php if (isset($_GET['tambah'])) : ?>
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                             <strong>Data Berhasil Ditambah,</strong> data yang anda masukkan berhasil ditambahkan.
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            <a href="index.php?pg=anggota" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></a>
                         </div>
                     <?php endif; ?>
                     <?php if (isset($_GET['ubah'])) : ?>
                         <div class="alert alert-primary alert-dismissible fade show" role="alert">
                             <strong>Data Berhasil Dirubah,</strong> data yang anda masukkan berhasil dirubah.
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            <a href="index.php?pg=anggota" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></a>
                         </div>
                     <?php endif; ?>
                     <?php if (isset($_GET['hapus'])) : ?>
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
                             <strong>Data Berhasil Dihapus,</strong> data telah dihapus permanen.
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            <a href="index.php?pg=anggota" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></a>
                         </div>
                     <?php endif; ?>
                     <table class="table table-bordered">

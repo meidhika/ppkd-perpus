@@ -39,25 +39,46 @@ $rowKategori = mysqli_fetch_assoc($queryKategori);
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="content/home.php">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="?pg=user">User</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="?pg=level">Level</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="?pg=kategori">Kategori</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="?pg=buku">Buku</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="?pg=anggota">Anggota</a>
-                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Master Data
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="?pg=anggota">Anggota</a></li>
+                                <li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" href="?pg=buku">Buku</a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" href="?pg=kategori">Kategori</a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
 
+                                <li><a class="dropdown-item" href="?pg=user">User</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="?pg=level">Level</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="?pg=peminjaman">Peminjaman</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="?pg=pengembalian">Pengembalian</a>
+                        </li>
                     </ul>
                     <form class="d-flex" role="search">
                         <a href="login.php" class="btn btn-primary">Login</a>
+                        <a href="logout.php" class="btn btn-outline-danger mx-3">Logout</a>
                     </form>
                 </div>
             </div>
@@ -77,6 +98,32 @@ $rowKategori = mysqli_fetch_assoc($queryKategori);
 
         <!-- end content -->
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+
+    <script>
+        $('#id_kategori').change(function() {
+            let id = $(this).val(),
+                option = "";
+            $.ajax({
+                url: `ajax/get-buku.php?id_kategori=${id}`,
+                type: "GET",
+                dataType: "json",
+                success: function(data) {
+                    option += "<option>Pilih Buku</option>"
+                    $.each(data, function(key, value) {
+
+                        // option += "<option value=" + value.id + ">" + value.judul + "</option>"
+                        option += `<option value=${value.id}> ${value.judul}</option>`
+                        // console.log("Valuenya : ", value.judul);
+                    });
+                    $('#id_buku').html(option);
+
+                }
+            })
+        });
+    </script>
 </body>
 
 </html>

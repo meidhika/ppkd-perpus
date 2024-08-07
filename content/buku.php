@@ -8,7 +8,7 @@ $queryBuku = mysqli_query($koneksi, "SELECT kategori.nama_kategori, buku.* FROM 
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>DATA buku</h4>
+                    <h4>DATA BUKU</h4>
                 </div>
                 <div class="card-body">
                     <div class="mb-3 d-flex justify-content-end">

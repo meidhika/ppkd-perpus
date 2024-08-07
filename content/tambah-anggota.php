@@ -57,8 +57,8 @@ if (isset($_GET['edit'])) {
                         <div class="mb-3">
                             <select name="jenis_kelamin" id="" class="form-control">
                                 <option value="">Pilih Jenis Kelamin</option>
-                                <option value="Laki-laki">Laki-Laki</option>
-                                <option value="Perempuan">Perempuan</option>
+                                <option value="Laki-laki" <?= isset($rowEdit['jenis_kelamin']) && $rowEdit['jenis_kelamin'] == 'Laki-laki' ? 'selected' : '' ?>>Laki-Laki</option>
+                                <option value="Perempuan" <?= isset($rowEdit['jenis_kelamin']) && $rowEdit['jenis_kelamin'] == 'Perempuan' ? 'selected' : '' ?>>Perempuan</option>
                             </select>
                             <!-- <label for="" class="form-label">Jenis Kelamin</label><br>
 
